@@ -1,0 +1,87 @@
+
+INFO 1126 - Programación 3
+Evaluación 2 (35%)
+Proyecto: Sistema Logístico Autónomo con Drones
+Fecha: Mayo 2025
+
+PROBLEMÁTICA:
+Correos Chile implementará una red de drones autónomos para mejorar la cobertura y reducir tiempos de entrega.
+Se deben diseñar desde cero:
+- Centros de distribución (📦 Almacenamiento)
+- Estaciones de carga (🔋 Recarga)
+- Destinos de entrega (👤 Clientes), dinámicos y con prioridad
+- Rutas seguras y viables según autonomía
+- Registro y análisis de rutas
+- Heurística para reutilización de rutas frecuentes
+
+OBJETIVO:
+Diseñar una simulación logística con:
+- Autonomía energética
+- Optimización de rutas
+- Conectividad garantizada
+- Análisis de datos
+- Visualización completa (dashboard)
+
+SIMULACIÓN:
+- Máximo 150 nodos
+- Roles: 20% Almacenamiento, 20% Recarga, 60% Cliente
+- Autonomía: 50 unidades de costo
+- Forzar recarga si se excede autonomía
+- Uso de grafos conectados
+
+METAS FUNCIONALES:
+1. Gestión de rutas (BFS, DFS, Topological Sort)
+2. Simulación con 15 a 150 nodos y hasta 500 órdenes
+3. Estadísticas (AVL para rutas más usadas)
+4. Conectividad garantizada
+5. Dashboard con 5 pestañas en Streamlit
+
+PESTAÑAS DEL DASHBOARD:
+🔄 Run Simulation:
+- Sliders para nodos, aristas, órdenes
+- Validaciones de conexión
+- Generación aleatoria con roles
+
+🌍 Explore Network:
+- Visualización de nodos
+- Cálculo de rutas con restricciones de autonomía
+- Mostrar costo y camino
+
+🌐 Clients & Orders:
+- Listado de clientes y órdenes
+- Muestra atributos como prioridad, costo, status, etc.
+
+📋 Route Analytics:
+- Registro de rutas frecuentes en AVL
+- Visualización del árbol
+
+📈 General Statistics:
+- Gráficos de uso de nodos por tipo
+- Proporción de roles
+
+ESTRUCTURA SUGERIDA:
+- model/: Graph, Vertex, Edge
+- sim/: Simulation, SimulationInitializer
+- domain/: Route, Order, Client
+- tda/: AVL, Map
+- visual/: NetworkXAdapter, AVLVisualizer, dashboard.py
+
+EVALUACIÓN (Ponderación):
+- Simulación funcional (25%)
+- Uso correcto de TDA (10%)
+- Dashboard modular (15%)
+- Rutas y autonomía (15%)
+- Presentación oral (25%)
+- Código modular y documentado (5%)
+- Diagrama de clases (5%)
+
+ENTREGA:
+- PPT (grupo 3-5 personas): semana 13 (09/06 - 13/06)
+- Individual: semana 12 (02/06 - 06/06)
+Contenidos:
+1. Presentación (grupo, tema, fecha, logo)
+2. Diagrama de clases
+3. Explicación de código
+4. Interfaz visual
+5. Demostración funcional del programa
+Tiempo: 15 minutos + 5 minutos de preguntas

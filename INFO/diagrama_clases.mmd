@@ -1,0 +1,95 @@
+classDiagram
+    class SimulationInitializer {
+        -Graph graph
+        -Order[] orders
+        -Client[] clients
+        -Route[] routes
+        -dict route_frequencies
+        -dict node_types
+        -int DRONE_AUTONOMY
+        -dict path_cache
+        -list _storage_nodes
+        -list _charging_nodes
+        -list _client_nodes
+    }
+    class Graph {
+        -dict adjacency_list
+        -dict edge_weights
+        +add_vertex()
+        +add_edge()
+        +vertices()
+        +get_neighbors()
+        +get_edge()
+        +edges()
+        +bfs()
+        +dfs()
+        +topological_sort()
+    }
+    class Edge {
+        -start
+        -end
+        -weight
+        -energy_cost
+        +is_viable()
+    }
+    class Vertex {
+        -element
+        -edges
+    }
+    class Client {
+        -client_id
+        -name
+        -client_type
+        -orders
+        +add_order()
+    }
+    class Order {
+        -order_id
+        -client_id
+        -client_name
+        -origin
+        -destination
+        -status
+        -priority
+        -creation_date
+        -delivery_date
+        -delivered_to
+        -route
+        -route_cost
+        +assign_route()
+    }
+    class Route {
+        -route_id
+        -nodes
+        -frequency
+        -total_cost
+        -charging_points
+        -node_visits
+        +increment_frequency()
+        +get_node_visits()
+    }
+    class AVL {
+        -AVLNode root
+        -int _size
+        +insert()
+        +delete()
+        +find()
+    }
+    class AVLNode {
+        -key
+        -height
+        -left
+        -right
+        -frequency
+    }
+    SimulationInitializer --> Graph
+    SimulationInitializer --> Client
+    SimulationInitializer --> Order
+    SimulationInitializer --> Route
+    Graph --> Edge
+    Graph --> Vertex
+    Client --> Order
+    Order --> Route
+    AVL --> AVLNode
+    Route --> "*" Vertex
+    Route --> "*" Edge 

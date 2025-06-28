@@ -1,0 +1,245 @@
+INFO 1126 - Programación 3
+Evaluación 3 (25%)
+Proyecto: Sistema Logístico Autónomo con Drones Fase 2
+
+Junio 2025
+
+Problemática (Fase 2: Optimización y Visualización Geoespacial)
+
+Correos Chile ha iniciado una segunda fase en la implementación de su red de drones autónomos.
+Tras superar la primera etapa de planificación y simulación básica, se requiere ahora una visualización
+geoespacial realista, una API de integración externa y herramientas para toma de decisiones basadas
+en datos históricos.
+
+Esta fase busca que el sistema contemple:
+
+● Visualización sobre mapa real: Visualizar todos los nodos y rutas directamente sobre una vista georreferenciada real (como el mapa de Temuco), incluyendo recorridos activos, árboles de expansión mínima y frecuencias.
+
+● Visualización de árboles de expansión mínima (Kruskal): Para analizar cobertura mínima necesaria entre puntos.
+
+● Optimización de rutas: Permitir calcular trayectos usando algoritmos eficientes como Dijkstra y Floyd-Warshall.
+
+● Estadísticas visuales y en PDF: Los usuarios deben poder visualizar y exportar un informe en PDF con resumen de rutas, nodos, distancias y uso energético.
+
+● API RESTful: Exponer la simulación para ser consultada o utilizada por servicios externos.
+
+Objetivo
+
+Diseñar, extender e integrar un sistema logístico de drones autónomos, que permita:
+
+1. Visualización de la red completa sobre un mapa interactivo real.
+2. Selección de rutas entre nodos (almacenamiento a clientes) con control de autonomía.
+3. Cálculo de rutas usando Dijkstra o Floyd-Warshall, con representación gráfica y resumen energético.
+4. Visualización del Árbol de Expansión Mínima (MST) usando Kruskal directamente en el mapa.
+5. Registro de órdenes generadas desde rutas simuladas y visualización de su historial.
+6. Generación de informes PDF, tanto desde la aplicación visual como desde una API externa.
+7. Consumo y prueba de una API RESTful que sirva como backend para los datos de la simulación.
+
+Video guía:
+https://www.youtube.com/watch?v=9LTdBsKqE_w
+
+Parámetros de Simulación
+
+● Cantidad máxima de nodos: hasta 150
+● Roles de nodos:
+  ○ 📦 Almacenamiento: 20%
+  ○ 🔋 Recarga: 20%
+  ○ 👤 Cliente: 60%
+● Autonomía máxima del dron: 50 unidades de costo
+● Si una ruta supera el límite de batería, se fuerza el paso por nodos de recarga.
+● Todas las rutas se generan sobre grafos conectados.
+
+Metas Funcionales Fase 2
+
+1. Gestión avanzada de rutas
+● Crear rutas dinámicas entre cualquier nodo de almacenamiento y cliente.
+● Forzar estaciones de recarga si la autonomía se ve superada.
+● Implementar:
+  ○ Dijkstra: caminos más cortos.
+  ○ Floyd-Warshall: caminos mínimos entre todos los pares.
+  ○ MST (Kruskal): Visualización.
+
+2. Simulación interactiva
+● Mínimo: 15 nodos, 20 aristas, 10 órdenes.
+● Escalabilidad: hasta 150 nodos, 300 aristas, 500 órdenes.
+● Uso de:
+  ○ AVL Tree: registro de rutas.
+  ○ HashMaps: búsqueda eficiente.
+  ○ Graph: red de transporte.
+
+3. Análisis estadístico
+● Registrar rutas en AVL.
+● Identificar rutas más utilizadas.
+● Contabilizar frecuencia de nodos origen/destino.
+
+4. Garantía de conectividad
+● Todos los grafos son conexos.
+● No hay nodos aislados.
+
+5. Visualización geográfica
+● Permitir:
+  ○ Calcular rutas.
+  ○ Ver costos y distancias.
+  ○ Completar órdenes.
+  ○ Mostrar MST.
+  ○ Resumen de vuelo.
+
+6. Generación de informes PDF
+● Desde la app y vía API.
+● Contenido:
+  ○ Tabla de pedidos.
+  ○ Clientes con más pedidos.
+  ○ Rutas más usadas.
+  ○ Gráficos estadísticos.
+
+7. API REST Interactiva (FastAPI)
+● Obtener estadísticas JSON.
+● Descargar informes.
+● Consultar rutas, nodos, pedidos.
+
+Pestaña 1: 🔄 Run Simulation
+
+Propósito:
+Configurar e iniciar simulación.
+
+Componentes:
+● Sliders: nodos (10-150), aristas (10-300), órdenes (10-300).
+● Texto informativo.
+● Botón: 📊 Start Simulation.
+
+Validaciones:
+● Aristas ≥ nodos - 1.
+● Nodos ≤ 150.
+● Configuración por defecto si no se cambia.
+
+Resultado:
+● Grafo aleatorio con roles:
+  ○ 📦 20% almacenamiento
+  ○ 🔋 20% recarga
+  ○ 👤 60% clientes
+
+Pestaña 2: 🌍 Explore Network
+
+Propósito:
+Visualización geográfica con Folium.
+
+Componentes:
+● Mapa real con nodos y aristas.
+● Selectbox: origen (📦), destino (👤).
+● Radio: algoritmo (Dijkstra, Floyd-Warshall).
+● Botones:
+  ○ ✈ Calculate Route
+  ○ ✅ Complete Delivery
+  ○ 🌲 Show MST
+● Cuadro resumen.
+
+Validaciones:
+● Rutas respetan autonomía (50) y recarga.
+
+Interacciones:
+● Ruta en rojo, resumen dinámico, MST en línea discontinua.
+● Registro de rutas.
+
+Pestaña 3: 🌐 Clients & Orders
+
+Propósito:
+Listar clientes y órdenes.
+
+Componentes:
+● JSON: lista de clientes y órdenes con atributos detallados.
+
+Validaciones:
+● Solo si hay simulación activa.
+
+Pestaña 4: 📋 Route Analytics
+
+Propósito:
+Visualizar rutas frecuentes y exportar PDF.
+
+Componentes:
+● Lista rutas frecuentes (camino → frecuencia).
+● Gráfico AVL con rutas.
+● Botón: 📄 Generar Informe PDF.
+
+Validaciones:
+● Solo si hay rutas.
+● PDF incluye:
+  ○ Rutas frecuentes
+  ○ Clientes recurrentes
+  ○ Nodos usados
+  ○ Gráficas
+
+Interacción:
+● Rutas ordenadas lexicográficamente.
+
+Pestaña 5: 📈 General Statistics
+
+Propósito:
+Mostrar estadísticas visuales.
+
+Componentes:
+● Barras: nodos más visitados por rol.
+● Torta: proporción de nodos por tipo.
+
+Validaciones:
+● Requiere simulación activa.
+
+API Endpoints
+
+1. `GET /clients/` - Lista de clientes.
+2. `GET /clients/{client_id}` - Info cliente por ID.
+3. `GET /orders/` - Lista de órdenes.
+4. `GET /orders/orders/{order_id}` - Detalle de orden.
+5. `POST /orders/orders/{order_id}/cancel` - Cancelar orden.
+6. `POST /orders/orders/{order_id}/complete` - Completar orden.
+7. `GET /reports/reports/pdf` - Generar PDF.
+8. `GET /info/reports/visits/clients` - Ranking clientes.
+9. `GET /info/reports/visits/recharges` - Ranking recarga.
+10. `GET /info/reports/visits/storages` - Ranking almacenamiento.
+11. `GET /info/reports/summary` - Resumen general.
+
+Estructura sugerida de clases y módulos
+
+| Clase / Módulo       | Función                                          | Ubicación        |
+|----------------------|--------------------------------------------------|------------------|
+| Graph, Vertex, Edge  | Modela el grafo                                  | model/           |
+| Simulation           | Controlador principal                            | sim/             |
+| SimulationInitializer| Generación de grafos                             | sim/             |
+| Route, Order, Client | Entidades del sistema                            | domain/          |
+| AVL                  | Rutas frecuentes                                 | tda/             |
+| Map (Hash Map)       | Acceso rápido a datos                            | tda/             |
+| NetworkXAdapter      | Visualización de grafos                          | visual/          |
+| AVLVisualizer        | Dibujo de AVL                                    | visual/          |
+| dashboard.py         | Interfaz Streamlit                               | visual/          |
+| map_builder          | Construcción del mapa                            | visual/map       |
+| flight_summary       | Cálculo de rutas                                 | visual/map       |
+| report_generator     | Generación de informes                           | visual/          |
+| api/main             | Entrada FastAPI                                  | api/             |
+| controllers/*        | Controladores de API                             | api/controllers/ |
+
+Arquitectura modular jerárquica por capas (layered architecture).
+
+Criterios de Evaluación
+
+| Criterio                         | Excelente (10) | Bueno (8) | Suficiente (4) | Insuficiente (1) | Peso (%) |
+|----------------------------------|----------------|-----------|----------------|------------------|----------|
+| API RESTful funcional            | Completa, sin errores | Con detalles menores | Fallos evidentes | No funciona | 25% |
+| Generación de PDF                | Completa, vía app y API | Con puntos claves | Parcial | No funciona | 10% |
+| Dashboard modular                | Diseño profesional | Claro | Mejorable | Confuso | 15% |
+| Mapa interactivo                 | Autonomía respetada | Fallos menores | Excede autonomía | No considera batería | 15% |
+| Presentación oral                | Clara, organizada, responde preguntas | Detalles menores | Incompleta | Mal manejo | 25% |
+| Código modular y documentado    | Documentación completa | Correcta | Mínima | Ninguna | 5% |
+| Repositorio GitHub              | Bien estructurado, commits | Funcional | Aceptable | Incompleto | 5% |
+
+Entrega
+
+Presentación grupal (3-5 integrantes) en semana 16 (30/06/2025 a 04/07/2025):
+
+1. Presentación del grupo y tema (nombre, fecha, logo).
+2. Explicación del código y flujo.
+3. Repositorio en GitHub con avance.
+4. Interfaz visual.
+5. Demostración funcional.
+
+Tiempo: 15 minutos + 5 preguntas.
+
