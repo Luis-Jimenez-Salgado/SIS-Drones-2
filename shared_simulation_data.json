@@ -1,0 +1,727 @@
+{
+  "initialized": true,
+  "route_counter": 11,
+  "order_counter": 15,
+  "node_visits": {
+    "S1": 1,
+    "S2": 1,
+    "S3": 1,
+    "C1": 1,
+    "C2": 1,
+    "C3": 1,
+    "T1": 1
+  },
+  "clients": [
+    {
+      "client_id": "CLI1",
+      "name": "Cliente 1",
+      "client_type": "VIP",
+      "node_id": "T1"
+    },
+    {
+      "client_id": "CLI2",
+      "name": "Cliente 2",
+      "client_type": "Premium",
+      "node_id": "T2"
+    },
+    {
+      "client_id": "CLI3",
+      "name": "Cliente 3",
+      "client_type": "Regular",
+      "node_id": "T3"
+    },
+    {
+      "client_id": "CLI4",
+      "name": "Cliente 4",
+      "client_type": "Premium",
+      "node_id": "T4"
+    },
+    {
+      "client_id": "CLI5",
+      "name": "Cliente 5",
+      "client_type": "VIP",
+      "node_id": "T5"
+    },
+    {
+      "client_id": "CLI6",
+      "name": "Cliente 6",
+      "client_type": "Premium",
+      "node_id": "T6"
+    },
+    {
+      "client_id": "CLI7",
+      "name": "Cliente 7",
+      "client_type": "VIP",
+      "node_id": "T7"
+    },
+    {
+      "client_id": "CLI8",
+      "name": "Cliente 8",
+      "client_type": "Regular",
+      "node_id": "T8"
+    },
+    {
+      "client_id": "CLI9",
+      "name": "Cliente 9",
+      "client_type": "Regular",
+      "node_id": "T9"
+    }
+  ],
+  "orders": [
+    {
+      "order_id": "ORD_1",
+      "origin": "S2",
+      "destination": "T6",
+      "client_id": "CLI6",
+      "client_name": "Cliente 6",
+      "status": "Completada",
+      "priority": "Premium",
+      "route_cost": 7,
+      "creation_date": "2025-06-29T11:59:54.430544",
+      "delivery_date": "2025-06-29T12:01:56.022743",
+      "route_info": {
+        "route_id": "Route_1",
+        "nodes": [
+          "S2",
+          "T4",
+          "T5",
+          "T6"
+        ],
+        "frequency": 2
+      }
+    },
+    {
+      "order_id": "ORD_2",
+      "origin": "S2",
+      "destination": "T3",
+      "client_id": "CLI3",
+      "client_name": "Cliente 3",
+      "status": "Pendiente",
+      "priority": "Regular",
+      "route_cost": 7,
+      "creation_date": "2025-06-29T11:59:54.430544",
+      "delivery_date": null,
+      "route_info": {
+        "route_id": "Route_2",
+        "nodes": [
+          "S2",
+          "T2",
+          "T3"
+        ],
+        "frequency": 2
+      }
+    },
+    {
+      "order_id": "ORD_3",
+      "origin": "S2",
+      "destination": "T1",
+      "client_id": "CLI1",
+      "client_name": "Cliente 1",
+      "status": "Pendiente",
+      "priority": "VIP",
+      "route_cost": 16,
+      "creation_date": "2025-06-29T11:59:54.431545",
+      "delivery_date": null,
+      "route_info": {
+        "route_id": "Route_3",
+        "nodes": [
+          "S2",
+          "S3",
+          "C1",
+          "C2",
+          "C3",
+          "T1"
+        ],
+        "frequency": 1
+      }
+    },
+    {
+      "order_id": "ORD_4",
+      "origin": "S3",
+      "destination": "T4",
+      "client_id": "CLI4",
+      "client_name": "Cliente 4",
+      "status": "Pendiente",
+      "priority": "Premium",
+      "route_cost": 14,
+      "creation_date": "2025-06-29T11:59:54.431545",
+      "delivery_date": null,
+      "route_info": {
+        "route_id": "Route_4",
+        "nodes": [
+          "S3",
+          "C1",
+          "C2",
+          "C3",
+          "T4"
+        ],
+        "frequency": 2
+      }
+    },
+    {
+      "order_id": "ORD_5",
+      "origin": "S3",
+      "destination": "T9",
+      "client_id": "CLI9",
+      "client_name": "Cliente 9",
+      "status": "Pendiente",
+      "priority": "Regular",
+      "route_cost": 19,
+      "creation_date": "2025-06-29T11:59:54.432547",
+      "delivery_date": null,
+      "route_info": {
+        "route_id": "Route_5",
+        "nodes": [
+          "S3",
+          "C1",
+          "C2",
+          "C3",
+          "T6",
+          "T7",
+          "T8",
+          "T9"
+        ],
+        "frequency": 1
+      }
+    },
+    {
+      "order_id": "ORD_6",
+      "origin": "S1",
+      "destination": "T9",
+      "client_id": "CLI9",
+      "client_name": "Cliente 9",
+      "status": "Pendiente",
+      "priority": "Regular",
+      "route_cost": 10,
+      "creation_date": "2025-06-29T11:59:54.432547",
+      "delivery_date": null,
+      "route_info": {
+        "route_id": "Route_6",
+        "nodes": [
+          "S1",
+          "S2",
+          "T7",
+          "T8",
+          "T9"
+        ],
+        "frequency": 1
+      }
+    },
+    {
+      "order_id": "ORD_7",
+      "origin": "S3",
+      "destination": "T4",
+      "client_id": "CLI4",
+      "client_name": "Cliente 4",
+      "status": "Pendiente",
+      "priority": "Premium",
+      "route_cost": 14,
+      "creation_date": "2025-06-29T11:59:54.432547",
+      "delivery_date": null,
+      "route_info": {
+        "route_id": "Route_4",
+        "nodes": [
+          "S3",
+          "C1",
+          "C2",
+          "C3",
+          "T4"
+        ],
+        "frequency": 2
+      }
+    },
+    {
+      "order_id": "ORD_8",
+      "origin": "S1",
+      "destination": "T4",
+      "client_id": "CLI4",
+      "client_name": "Cliente 4",
+      "status": "Pendiente",
+      "priority": "Premium",
+      "route_cost": 8,
+      "creation_date": "2025-06-29T11:59:54.432547",
+      "delivery_date": null,
+      "route_info": {
+        "route_id": "Route_7",
+        "nodes": [
+          "S1",
+          "S2",
+          "T4"
+        ],
+        "frequency": 1
+      }
+    },
+    {
+      "order_id": "ORD_9",
+      "origin": "S2",
+      "destination": "T4",
+      "client_id": "CLI4",
+      "client_name": "Cliente 4",
+      "status": "Pendiente",
+      "priority": "Premium",
+      "route_cost": 4,
+      "creation_date": "2025-06-29T11:59:54.432547",
+      "delivery_date": null,
+      "route_info": {
+        "route_id": "Route_8",
+        "nodes": [
+          "S2",
+          "T4"
+        ],
+        "frequency": 1
+      }
+    },
+    {
+      "order_id": "ORD_10",
+      "origin": "S1",
+      "destination": "T6",
+      "client_id": "CLI6",
+      "client_name": "Cliente 6",
+      "status": "Pendiente",
+      "priority": "Premium",
+      "route_cost": 11,
+      "creation_date": "2025-06-29T11:59:54.432547",
+      "delivery_date": null,
+      "route_info": {
+        "route_id": "Route_9",
+        "nodes": [
+          "S1",
+          "S2",
+          "T4",
+          "T5",
+          "T6"
+        ],
+        "frequency": 2
+      }
+    },
+    {
+      "order_id": "ORD_11",
+      "origin": "S2",
+      "destination": "T9",
+      "client_id": "CLI9",
+      "client_name": "Cliente 9",
+      "status": "Pendiente",
+      "priority": "Regular",
+      "route_cost": 6,
+      "creation_date": "2025-06-29T11:59:54.432547",
+      "delivery_date": null,
+      "route_info": {
+        "route_id": "Route_10",
+        "nodes": [
+          "S2",
+          "T7",
+          "T8",
+          "T9"
+        ],
+        "frequency": 1
+      }
+    },
+    {
+      "order_id": "ORD_12",
+      "origin": "S2",
+      "destination": "T3",
+      "client_id": "CLI3",
+      "client_name": "Cliente 3",
+      "status": "Pendiente",
+      "priority": "Regular",
+      "route_cost": 7,
+      "creation_date": "2025-06-29T11:59:54.432547",
+      "delivery_date": null,
+      "route_info": {
+        "route_id": "Route_2",
+        "nodes": [
+          "S2",
+          "T2",
+          "T3"
+        ],
+        "frequency": 2
+      }
+    },
+    {
+      "order_id": "ORD_13",
+      "origin": "S2",
+      "destination": "T6",
+      "client_id": "CLI6",
+      "client_name": "Cliente 6",
+      "status": "Pendiente",
+      "priority": "Premium",
+      "route_cost": 7,
+      "creation_date": "2025-06-29T11:59:54.432547",
+      "delivery_date": null,
+      "route_info": {
+        "route_id": "Route_1",
+        "nodes": [
+          "S2",
+          "T4",
+          "T5",
+          "T6"
+        ],
+        "frequency": 2
+      }
+    },
+    {
+      "order_id": "ORD_14",
+      "origin": "S1",
+      "destination": "T6",
+      "client_id": "CLI6",
+      "client_name": "Cliente 6",
+      "status": "Pendiente",
+      "priority": "Premium",
+      "route_cost": 11,
+      "creation_date": "2025-06-29T11:59:54.432547",
+      "delivery_date": null,
+      "route_info": {
+        "route_id": "Route_9",
+        "nodes": [
+          "S1",
+          "S2",
+          "T4",
+          "T5",
+          "T6"
+        ],
+        "frequency": 2
+      }
+    },
+    {
+      "order_id": "ORD_15",
+      "origin": "S1",
+      "destination": "T1",
+      "client_id": "CLI1",
+      "client_name": "Cliente 1",
+      "status": "Completada",
+      "priority": "VIP",
+      "route_cost": 20,
+      "creation_date": "2025-06-29T12:00:38.437079",
+      "delivery_date": "2025-06-29T12:00:38.437079",
+      "route_info": {
+        "route_id": "Ruta_11",
+        "nodes": [
+          "S1",
+          "S2",
+          "S3",
+          "C1",
+          "C2",
+          "C3",
+          "T1"
+        ],
+        "frequency": 1
+      }
+    }
+  ],
+  "routes": [
+    {
+      "route_id": "Route_1",
+      "nodes": [
+        "S2",
+        "T4",
+        "T5",
+        "T6"
+      ],
+      "frequency": 2,
+      "node_visits": {
+        "S2": 2,
+        "T4": 2,
+        "T5": 2,
+        "T6": 2
+      }
+    },
+    {
+      "route_id": "Route_2",
+      "nodes": [
+        "S2",
+        "T2",
+        "T3"
+      ],
+      "frequency": 2,
+      "node_visits": {
+        "S2": 2,
+        "T2": 2,
+        "T3": 2
+      }
+    },
+    {
+      "route_id": "Route_3",
+      "nodes": [
+        "S2",
+        "S3",
+        "C1",
+        "C2",
+        "C3",
+        "T1"
+      ],
+      "frequency": 1,
+      "node_visits": {
+        "S2": 1,
+        "S3": 1,
+        "C1": 1,
+        "C2": 1,
+        "C3": 1,
+        "T1": 1
+      }
+    },
+    {
+      "route_id": "Route_4",
+      "nodes": [
+        "S3",
+        "C1",
+        "C2",
+        "C3",
+        "T4"
+      ],
+      "frequency": 2,
+      "node_visits": {
+        "S3": 2,
+        "C1": 2,
+        "C2": 2,
+        "C3": 2,
+        "T4": 2
+      }
+    },
+    {
+      "route_id": "Route_5",
+      "nodes": [
+        "S3",
+        "C1",
+        "C2",
+        "C3",
+        "T6",
+        "T7",
+        "T8",
+        "T9"
+      ],
+      "frequency": 1,
+      "node_visits": {
+        "S3": 1,
+        "C1": 1,
+        "C2": 1,
+        "C3": 1,
+        "T6": 1,
+        "T7": 1,
+        "T8": 1,
+        "T9": 1
+      }
+    },
+    {
+      "route_id": "Route_6",
+      "nodes": [
+        "S1",
+        "S2",
+        "T7",
+        "T8",
+        "T9"
+      ],
+      "frequency": 1,
+      "node_visits": {
+        "S1": 1,
+        "S2": 1,
+        "T7": 1,
+        "T8": 1,
+        "T9": 1
+      }
+    },
+    {
+      "route_id": "Route_7",
+      "nodes": [
+        "S1",
+        "S2",
+        "T4"
+      ],
+      "frequency": 1,
+      "node_visits": {
+        "S1": 1,
+        "S2": 1,
+        "T4": 1
+      }
+    },
+    {
+      "route_id": "Route_8",
+      "nodes": [
+        "S2",
+        "T4"
+      ],
+      "frequency": 1,
+      "node_visits": {
+        "S2": 1,
+        "T4": 1
+      }
+    },
+    {
+      "route_id": "Route_9",
+      "nodes": [
+        "S1",
+        "S2",
+        "T4",
+        "T5",
+        "T6"
+      ],
+      "frequency": 2,
+      "node_visits": {
+        "S1": 2,
+        "S2": 2,
+        "T4": 2,
+        "T5": 2,
+        "T6": 2
+      }
+    },
+    {
+      "route_id": "Route_10",
+      "nodes": [
+        "S2",
+        "T7",
+        "T8",
+        "T9"
+      ],
+      "frequency": 1,
+      "node_visits": {
+        "S2": 1,
+        "T7": 1,
+        "T8": 1,
+        "T9": 1
+      }
+    },
+    {
+      "route_id": "Ruta_11",
+      "nodes": [
+        "S1",
+        "S2",
+        "S3",
+        "C1",
+        "C2",
+        "C3",
+        "T1"
+      ],
+      "frequency": 1,
+      "node_visits": {
+        "S1": 1,
+        "S2": 1,
+        "S3": 1,
+        "C1": 1,
+        "C2": 1,
+        "C3": 1,
+        "T1": 1
+      }
+    }
+  ],
+  "graph": {
+    "vertices": [
+      "S1",
+      "S2",
+      "S3",
+      "C1",
+      "C2",
+      "C3",
+      "T1",
+      "T2",
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T7",
+      "T8",
+      "T9"
+    ],
+    "edges": [
+      {
+        "start": "<bound method Edge.start of Edge(S1, S2, 4)>",
+        "end": "<bound method Edge.end of Edge(S1, S2, 4)>",
+        "weight": 4.0
+      },
+      {
+        "start": "<bound method Edge.start of Edge(S2, T7, 2)>",
+        "end": "<bound method Edge.end of Edge(S2, T7, 2)>",
+        "weight": 2.0
+      },
+      {
+        "start": "<bound method Edge.start of Edge(S2, T2, 5)>",
+        "end": "<bound method Edge.end of Edge(S2, T2, 5)>",
+        "weight": 5.0
+      },
+      {
+        "start": "<bound method Edge.start of Edge(S2, T4, 4)>",
+        "end": "<bound method Edge.end of Edge(S2, T4, 4)>",
+        "weight": 4.0
+      },
+      {
+        "start": "<bound method Edge.start of Edge(S2, S3, 3)>",
+        "end": "<bound method Edge.end of Edge(S2, S3, 3)>",
+        "weight": 3.0
+      },
+      {
+        "start": "<bound method Edge.start of Edge(S3, C1, 3)>",
+        "end": "<bound method Edge.end of Edge(S3, C1, 3)>",
+        "weight": 3.0
+      },
+      {
+        "start": "<bound method Edge.start of Edge(C1, C2, 5)>",
+        "end": "<bound method Edge.end of Edge(C1, C2, 5)>",
+        "weight": 5.0
+      },
+      {
+        "start": "<bound method Edge.start of Edge(C2, C3, 1)>",
+        "end": "<bound method Edge.end of Edge(C2, C3, 1)>",
+        "weight": 1.0
+      },
+      {
+        "start": "<bound method Edge.start of Edge(C3, T1, 4)>",
+        "end": "<bound method Edge.end of Edge(C3, T1, 4)>",
+        "weight": 4.0
+      },
+      {
+        "start": "<bound method Edge.start of Edge(C3, T4, 5)>",
+        "end": "<bound method Edge.end of Edge(C3, T4, 5)>",
+        "weight": 5.0
+      },
+      {
+        "start": "<bound method Edge.start of Edge(C3, T6, 3)>",
+        "end": "<bound method Edge.end of Edge(C3, T6, 3)>",
+        "weight": 3.0
+      },
+      {
+        "start": "<bound method Edge.start of Edge(T1, T2, 4)>",
+        "end": "<bound method Edge.end of Edge(T1, T2, 4)>",
+        "weight": 4.0
+      },
+      {
+        "start": "<bound method Edge.start of Edge(T2, T3, 2)>",
+        "end": "<bound method Edge.end of Edge(T2, T3, 2)>",
+        "weight": 2.0
+      },
+      {
+        "start": "<bound method Edge.start of Edge(T3, T4, 5)>",
+        "end": "<bound method Edge.end of Edge(T3, T4, 5)>",
+        "weight": 5.0
+      },
+      {
+        "start": "<bound method Edge.start of Edge(T4, T5, 1)>",
+        "end": "<bound method Edge.end of Edge(T4, T5, 1)>",
+        "weight": 1.0
+      },
+      {
+        "start": "<bound method Edge.start of Edge(T5, T7, 3)>",
+        "end": "<bound method Edge.end of Edge(T5, T7, 3)>",
+        "weight": 3.0
+      },
+      {
+        "start": "<bound method Edge.start of Edge(T5, T6, 2)>",
+        "end": "<bound method Edge.end of Edge(T5, T6, 2)>",
+        "weight": 2.0
+      },
+      {
+        "start": "<bound method Edge.start of Edge(T6, T7, 3)>",
+        "end": "<bound method Edge.end of Edge(T6, T7, 3)>",
+        "weight": 3.0
+      },
+      {
+        "start": "<bound method Edge.start of Edge(T7, T8, 3)>",
+        "end": "<bound method Edge.end of Edge(T7, T8, 3)>",
+        "weight": 3.0
+      },
+      {
+        "start": "<bound method Edge.start of Edge(T8, T9, 1)>",
+        "end": "<bound method Edge.end of Edge(T8, T9, 1)>",
+        "weight": 1.0
+      }
+    ]
+  },
+  "last_updated": "2025-06-29T12:00:38.441078"
+}

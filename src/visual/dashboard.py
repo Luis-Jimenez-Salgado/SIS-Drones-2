@@ -450,13 +450,20 @@ def explore_network_tab():
                 st.error(f'Error al mostrar el MST: {str(e)}')
     
     with col3:
-        if st.button('🗺️ Limpiar Mapa', use_container_width=True):
-            # Limpiar el mapa y restaurar rutas normales
-            map_viz.clear_map(st.session_state.graph)
-            st.session_state.current_path = None
-            st.session_state.path_calculated = False
-            st.session_state.flight_summary = None
-            st.success('🗺️ Mapa limpiado - Rutas normales restauradas')
+        # Verificar si el MST está activo
+        mst_active = hasattr(map_viz, 'mst_mode') and map_viz.mst_mode
+        
+        if mst_active:
+            # Si el MST está activo, mostrar botón para desactivarlo
+            if st.button('❌ Disable MST', use_container_width=True):
+                # Desactivar el MST y restaurar rutas normales
+                map_viz.clear_mst_info()
+                map_viz.show_normal_edges()
+                st.success('❌ MST desactivado - Rutas normales restauradas')
+                st.rerun()
+        else:
+            # Si el MST no está activo, el botón está deshabilitado
+            st.button('❌ Disable MST', use_container_width=True, disabled=True)
 
     # Mostrar el mapa principal
     st.subheader('🗺️ Mapa de la Red')
@@ -574,7 +581,7 @@ def explore_network_tab():
                     
                     order.assign_route(route)
                     order.route_cost = total_cost
-                    order.status = "Completado"
+                    order.complete_delivery()
                     
                     st.session_state.orders.append(order)
                 

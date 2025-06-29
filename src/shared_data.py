@@ -82,8 +82,7 @@ class SharedDataManager:
                         'client_id': client.client_id,
                         'name': client.name,
                         'client_type': client.client_type,
-                        'node_id': getattr(client, 'node_id', 'N/A'),
-                        'created_at': getattr(client, 'created_at', None)
+                        'node_id': getattr(client, 'node_id', 'N/A')
                     }
                     clients_data.append(client_dict)
                 
